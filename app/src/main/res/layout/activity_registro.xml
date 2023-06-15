@@ -10,7 +10,7 @@
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:orientation="vertical"
-        android:background="@color/clarito"
+        android:background="@color/layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,14 +18,14 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="181dp"
+            android:layout_width="396dp"
+            android:layout_height="133dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/logotorneria" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="586dp"
+            android:layout_width="425dp"
+            android:layout_height="611dp"
             android:layout_gravity="center"
             android:background="@drawable/style_linerlayout"
             android:orientation="vertical"
@@ -55,7 +55,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName6"
+                android:id="@+id/editTextNombre"
                 android:layout_width="370dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
@@ -78,7 +78,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName4"
+                android:id="@+id/editTextApellido"
                 android:layout_width="370dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
@@ -101,7 +101,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/editTextEmail"
                 android:layout_width="370dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
@@ -124,7 +124,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName9"
+                android:id="@+id/editTextPassword"
                 android:layout_width="370dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
@@ -135,13 +135,22 @@
                 android:textSize="20dp" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/buttonRegistrar"
                 android:layout_width="218dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="35dp"
                 android:background="@drawable/azuloscuro_button"
                 android:text="Registrar" />
+
+            <Button
+                android:id="@+id/buttonVolveratras"
+                android:layout_width="218dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/azuloscuro_button"
+                android:text="Cerrar" />
 
         </LinearLayout>
     </LinearLayout>
