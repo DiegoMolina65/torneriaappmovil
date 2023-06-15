@@ -1,14 +1,25 @@
 package com.interfaceae.torneriaproyecto;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class Servicio {
+    private String nombre;
+    private String descripcion;
+    private double costo;
 
-import android.os.Bundle;
+    public Servicio(String nombre, String descripcion, double costo) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.costo = costo;
+    }
 
-public class Servicio extends AppCompatActivity {
+    public String getNombre() {
+        return nombre;
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_servicio);
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public double getCosto() {
+        return costo;
     }
 }

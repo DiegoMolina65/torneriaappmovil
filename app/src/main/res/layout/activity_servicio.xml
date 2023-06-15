@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Servicio">
+    tools:context=".ServicioActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -96,6 +96,19 @@
                             android:shadowDy="1"
                             android:shadowRadius="1" />
 
+                        <TextView
+                            android:id="@+id/product_buy1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:shadowColor="#000000"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="Costo: 100$"
+                            android:textColor="#4F709C"
+                            android:textSize="18sp" />
+
                         <Button
                             android:id="@+id/buttonSoliciar1"
                             android:layout_width="match_parent"
@@ -157,6 +170,19 @@
                             android:shadowDy="1"
                             android:shadowRadius="1" />
 
+                        <TextView
+                            android:id="@+id/product_buy2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:shadowColor="#000000"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="Costo: 150$"
+                            android:textColor="#4F709C"
+                            android:textSize="18sp" />
+
                         <Button
                             android:id="@+id/buttonSoliciar2"
                             android:layout_width="match_parent"
@@ -217,6 +243,19 @@
                             android:shadowDx="1"
                             android:shadowDy="1"
                             android:shadowRadius="1" />
+
+                        <TextView
+                            android:id="@+id/product_buy3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:shadowColor="#000000"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="Costo: 200$"
+                            android:textColor="#4F709C"
+                            android:textSize="18sp" />
 
                         <Button
                             android:id="@+id/buttonSoliciar3"
