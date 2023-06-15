@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         buttonInvitado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Informacion.class);
+                Intent intent = new Intent(MainActivity.this, Servicio.class);
                 startActivity(intent);
             }
         });

@@ -30,16 +30,37 @@
             android:orientation="vertical"
             android:padding="15dp">
 
+            <TextView
+                android:id="@+id/textEmailLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email:"
+                android:layout_marginTop="15dp"
+                android:textAlignment="textStart"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginBottom="15dp"
                 android:ems="10"
                 android:hint="Email"
+                android:textColor="#FFFFFF"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/textContraLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contraseña:"
+                android:textAlignment="textStart"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextPassword"
@@ -47,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Password"
+                android:textColor="#FFFFFF"
                 android:inputType="textPassword"
                 android:minHeight="48dp" />
 
