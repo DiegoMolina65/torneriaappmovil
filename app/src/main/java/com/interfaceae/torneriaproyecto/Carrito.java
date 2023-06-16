@@ -3,14 +3,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carrito {
+    private static Carrito instance;
     private List<Servicio> servicios;
 
-    public Carrito() {
+    private Carrito() {
         this.servicios = new ArrayList<>();
+    }
+
+    public static Carrito getInstance() {
+        if (instance == null) {
+            instance = new Carrito();
+        }
+        return instance;
     }
 
     public void agregarServicio(Servicio servicio) {
         this.servicios.add(servicio);
+    }
+
+    public String obtenerServiciosEnTexto() {
+        StringBuilder builder = new StringBuilder();
+        for (Servicio servicio : this.servicios) {
+            builder.append(servicio.getNombre());
+            builder.append(" - ");
+            builder.append(servicio.getCosto());
+            builder.append("\n");
+        }
+        return builder.toString();
     }
 
     public double obtenerCostoTotal() {

@@ -17,7 +17,7 @@ public class ServicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servicio);
 
-        carrito = new Carrito();
+        carrito = Carrito.getInstance();
 
         // Definir los servicios
         final Servicio servicio1 = new Servicio("Construcción, preparación de máquinas y equipos de procesos industriales", "...", 100);
