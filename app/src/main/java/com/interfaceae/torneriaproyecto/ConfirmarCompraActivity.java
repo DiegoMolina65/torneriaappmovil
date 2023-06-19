@@ -78,12 +78,9 @@ public class ConfirmarCompraActivity extends AppCompatActivity {
     }
 
     private void enviarCorreo(String mensaje) {
-        String destinatario = "correo_destino@gmail.com";
+        String destinatario = "torneriamontero21@gmail.com";
         String asunto = "Detalles de la compra";
 
-        EmailSender.enviarCorreo(destinatario, asunto, mensaje);
-
-        Toast.makeText(this, "Correo enviado exitosamente", Toast.LENGTH_SHORT).show();
+        EmailSender.enviarCorreo(this, destinatario, asunto, mensaje);
     }
-
 }
