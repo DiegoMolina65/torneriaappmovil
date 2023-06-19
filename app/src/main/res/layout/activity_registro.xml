@@ -9,8 +9,8 @@
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="729dp"
+        android:background="@color/white"
         android:orientation="vertical"
-        android:background="@color/layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,12 +57,12 @@
             <EditText
                 android:id="@+id/editTextNombre"
                 android:layout_width="370dp"
-                android:textColor="#FFFFFF"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:ems="10"
                 android:hint="Jose Alem"
                 android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
                 android:textSize="20dp" />
 
             <TextView
@@ -83,9 +83,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:ems="10"
-                android:textColor="#FFFFFF"
                 android:hint="Rodriguez "
                 android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
                 android:textSize="20dp" />
 
             <TextView
@@ -106,9 +106,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:ems="10"
-                android:textColor="#FFFFFF"
                 android:hint="josealem04@gmail.com"
                 android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
                 android:textSize="20dp" />
 
             <TextView
@@ -129,9 +129,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:ems="10"
-                android:textColor="#FFFFFF"
                 android:hint="monterocity"
                 android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
                 android:textSize="20dp" />
 
             <Button

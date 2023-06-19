@@ -1,17 +1,16 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <shape>
-            <solid android:color="#3355A6"/> <!-- Cambia este valor si quieres un tono de azul diferente -->
+            <solid android:color="#A63333"/> <!-- Cambia este valor si quieres un tono de azul diferente -->
             <corners android:radius="8dp"/> <!-- Cambia este valor si quieres bordes más redondeados -->
             <stroke android:width="2dp" android:color="#000000"/> <!-- Cambia este valor si quieres un grosor de borde o color diferente -->
         </shape>
     </item>
     <item>
         <shape>
-            <solid android:color="#4466B8"/> <!-- Cambia este valor si quieres un tono de azul diferente -->
+            <solid android:color="#B84444"/> <!-- Cambia este valor si quieres un tono de azul diferente -->
             <corners android:radius="8dp"/> <!-- Cambia este valor si quieres bordes más redondeados -->
             <stroke android:width="2dp" android:color="#000000"/> <!-- Cambia este valor si quieres un grosor de borde o color diferente -->
         </shape>
     </item>
 </selector>
-

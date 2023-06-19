@@ -1,6 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.interfaceae.torneriaproyecto">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,19 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Torneriaproyecto"
         tools:targetApi="31">
-
+        <activity
+            android:name=".principalmain"
+            android:exported="false"
+            android:label="@string/title_activity_principalmain"
+            android:theme="@style/Theme.Torneriaproyecto.NoActionBar" />
         <activity
             android:name=".ServicioActivity"
             android:exported="false" />
-
         <activity
             android:name=".Informacion"
             android:exported="false" />
-
         <activity
             android:name=".Registro"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -33,13 +37,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ConfirmarCompraActivity"
             android:exported="false" />
-
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
