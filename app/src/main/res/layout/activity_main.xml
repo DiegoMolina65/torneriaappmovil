@@ -38,7 +38,7 @@
                 android:text="Email:"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:textStyle="bold" />
 
             <EditText
@@ -50,7 +50,8 @@
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
 
             <TextView
                 android:id="@+id/textContraLogin"
@@ -59,7 +60,7 @@
                 android:text="Contraseña:"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:textStyle="bold" />
 
             <EditText
@@ -70,7 +71,8 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
 
             <Button
                 android:id="@+id/buttonLogin"
@@ -79,7 +81,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/azuloscuro_button"
+                android:background="@drawable/botonlogin"
                 android:text="Login" />
 
             <Button
@@ -88,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/azuloscuro_button"
+                android:background="@drawable/botonlogin"
                 android:text="Register" />
 
         </LinearLayout>

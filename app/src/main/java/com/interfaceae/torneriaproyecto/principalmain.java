@@ -3,6 +3,7 @@ package com.interfaceae.torneriaproyecto;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageButton;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -20,20 +21,26 @@ public class principalmain extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityPrincipalmainBinding binding;
+    private Carrito carrito;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        carrito = Carrito.getInstance();
+
+
         binding = ActivityPrincipalmainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarPrincipalmain.toolbar);
+
+        ImageButton cartButton = findViewById(R.id.fab);
         binding.appBarPrincipalmain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "proximamente", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                CarritoDialogFragment carritoDialog = new CarritoDialogFragment(carrito);
+                carritoDialog.show(getSupportFragmentManager(), "CarritoDialog");
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

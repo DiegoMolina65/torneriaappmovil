@@ -49,13 +49,7 @@ public class ServicioActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton cartButton = findViewById(R.id.cart_button);
-        cartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CarritoDialogFragment carritoDialog = new CarritoDialogFragment(carrito);
-                carritoDialog.show(getSupportFragmentManager(), "CarritoDialog");
-            }
-        });
+
+
     }
 }

@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#BFBFBF"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,7 +17,12 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:background="#FA4E4E">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,7 +76,7 @@
                             android:shadowDy="1"
                             android:shadowRadius="1"
                             android:text="Potenciando el progreso sin límites! Maquinaria esencial, diversa y transformadora para empacar, ensamblar, envasar y llenar. ¡Su impacto en la humanidad es indiscutible!"
-                            android:textColor="#4F709C"
+                            android:textColor="#000000"
                             android:textSize="18sp" />
 
                         <TextView
@@ -84,7 +89,7 @@
                             android:shadowDy="1"
                             android:shadowRadius="1"
                             android:text="Costo: 100$"
-                            android:textColor="#4F709C"
+                            android:textColor="#000000"
                             android:textSize="18sp" />
 
                         <Button
@@ -118,12 +123,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
-                            android:shadowColor="#000000"
+                            android:shadowColor="#FF0000"
                             android:shadowDx="1"
                             android:shadowDy="1"
                             android:shadowRadius="1"
                             android:text="¡Restaura el poder de tu producción!"
-                            android:textColor="#4F709C"
+                            android:textColor="#D61F1F"
                             android:textSize="22sp"
                             android:textStyle="bold" />
 

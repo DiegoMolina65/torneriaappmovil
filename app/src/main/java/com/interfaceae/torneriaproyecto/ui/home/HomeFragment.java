@@ -17,7 +17,6 @@ import com.interfaceae.torneriaproyecto.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
     private View view;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

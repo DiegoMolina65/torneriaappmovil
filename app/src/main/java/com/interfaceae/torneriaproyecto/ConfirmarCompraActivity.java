@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ public class ConfirmarCompraActivity extends AppCompatActivity {
     private Carrito carrito;
     private ServicioAdapter servicioAdapter;
     private TextView textTotal;
+    private ImageButton Volver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +71,13 @@ public class ConfirmarCompraActivity extends AppCompatActivity {
                 // Redirigir a la pantalla ServicioActivity
                 Intent intent = new Intent(ConfirmarCompraActivity.this, ServicioActivity.class);
                 startActivity(intent);
+            }
+        });
+        Volver = findViewById(R.id.back_button);
+        Volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

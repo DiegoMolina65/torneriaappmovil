@@ -39,7 +39,7 @@
                 android:text="Registro"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
-                android:textSize="30dp"
+                android:textSize="36dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -60,9 +60,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:ems="10"
-                android:hint="Jose Alem"
+                android:hint="Tu nombre"
                 android:inputType="textPersonName"
                 android:textColor="#FFFFFF"
+                android:textColorHint="#DDDDDD"
                 android:textSize="20dp" />
 
             <TextView
@@ -83,9 +84,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:ems="10"
-                android:hint="Rodriguez "
+                android:hint="Tu apellido"
                 android:inputType="textPersonName"
                 android:textColor="#FFFFFF"
+                android:textColorHint="#DDDDDD"
                 android:textSize="20dp" />
 
             <TextView
@@ -106,9 +108,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:ems="10"
-                android:hint="josealem04@gmail.com"
+                android:hint="example@gmail.com"
                 android:inputType="textPersonName"
                 android:textColor="#FFFFFF"
+                android:textColorHint="#DDDDDD"
                 android:textSize="20dp" />
 
             <TextView
@@ -129,9 +132,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:ems="10"
-                android:hint="monterocity"
+                android:hint="Tu contraseña"
                 android:inputType="textPersonName"
                 android:textColor="#FFFFFF"
+                android:textColorHint="#DDDDDD"
                 android:textSize="20dp" />
 
             <Button
@@ -140,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="35dp"
-                android:background="@drawable/azuloscuro_button"
+                android:background="@drawable/botonlogin"
                 android:text="Registrar" />
 
             <Button
@@ -149,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/azuloscuro_button"
+                android:background="@drawable/botonlogin"
                 android:text="Cerrar" />
 
         </LinearLayout>
