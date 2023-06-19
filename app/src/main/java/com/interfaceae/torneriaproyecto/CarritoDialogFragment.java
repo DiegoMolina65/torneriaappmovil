@@ -140,4 +140,3 @@ public class CarritoDialogFragment extends DialogFragment {
         dialog.getWindow().setBackgroundDrawable(layerDrawable);
     }
 }
-

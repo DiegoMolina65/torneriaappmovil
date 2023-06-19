@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +18,6 @@ public class ConfirmarCompraActivity extends AppCompatActivity {
     private Carrito carrito;
     private ServicioAdapter servicioAdapter;
     private TextView textTotal;
-    private ImageButton Volver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,13 +70,6 @@ public class ConfirmarCompraActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Volver = findViewById(R.id.back_button);
-        Volver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     private void actualizarTotal() {
@@ -88,12 +78,9 @@ public class ConfirmarCompraActivity extends AppCompatActivity {
     }
 
     private void enviarCorreo(String mensaje) {
-        String destinatario = "correo_destino@gmail.com";
+        String destinatario = "torneriamontero21@gmail.com";
         String asunto = "Detalles de la compra";
 
-        EmailSender.enviarCorreo(destinatario, asunto, mensaje);
-
-        Toast.makeText(this, "Correo enviado exitosamente", Toast.LENGTH_SHORT).show();
+        EmailSender.enviarCorreo(this, destinatario, asunto, mensaje);
     }
-
 }

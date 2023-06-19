@@ -1,6 +1,9 @@
 package com.interfaceae.torneriaproyecto;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageButton;
@@ -68,5 +71,37 @@ public class principalmain extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_principalmain);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            cerrarSesion();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+    private void cerrarSesion() {
+        // Obtener SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
+
+        // Borrar los datos almacenados en SharedPreferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("email");
+        editor.remove("password");
+        editor.apply();
+
+
+        // Iniciar LoginActivity y finalizar MainActivity
+        Intent loginIntent = new Intent(principalmain.this, MainActivity.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(loginIntent);
+        finish();
     }
 }

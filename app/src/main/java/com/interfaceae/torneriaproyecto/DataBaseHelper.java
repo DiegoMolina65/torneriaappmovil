@@ -1,23 +1,23 @@
 package com.interfaceae.torneriaproyecto;
-
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DataBaseHelper extends SQLiteOpenHelper {
-
+public class DataBaseHelper extends SQLiteOpenHelper{
+    // Nombre de la base de datos
     public static final String DATABASE_NAME = "torneriamontero.db";
+
+    // Versión de la base de datos. Si cambias el esquema de la base de datos, debes incrementar la versión de la base de datos.
     public static final int DATABASE_VERSION = 1;
 
+    // Definimos el nombre de la tabla y todas sus columnas.
     public static final String TABLE_NAME = "Registro";
     public static final String COLUMN_NAME = "Nombre";
     public static final String COLUMN_SURNAME = "Apellido";
     public static final String COLUMN_EMAIL = "Email";
     public static final String COLUMN_PASSWORD = "Contraseña";
 
+    // Creación de la tabla
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_NAME + " TEXT," +
@@ -25,6 +25,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                     COLUMN_EMAIL + " TEXT PRIMARY KEY," +
                     COLUMN_PASSWORD + " TEXT)";
 
+    // Eliminación de la tabla
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + TABLE_NAME;
 
@@ -37,72 +38,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Esta base de datos es solo un caché para datos en línea, por lo que su actualización consiste
+        // simplemente en descartar los datos existentes y comenzar de nuevo
         db.execSQL(SQL_DELETE_ENTRIES);
         onCreate(db);
-    }
-
-    public boolean checkUser(String email) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_EMAIL + " = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{email});
-
-        boolean exists = cursor.getCount() > 0;
-
-        cursor.close();
-        db.close();
-
-        return exists;
-    }
-
-    public long addUser(String name, String surname, String email, String password) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, name);
-        values.put(COLUMN_SURNAME, surname);
-        values.put(COLUMN_EMAIL, email);
-        values.put(COLUMN_PASSWORD, password);
-
-        long result = db.insert(TABLE_NAME, null, values);
-
-        db.close();
-
-        return result;
-    }
-
-    public boolean checkPassword(String email, String password) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_EMAIL + " = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{email});
-
-        boolean exists = cursor.moveToFirst();
-        if (exists) {
-            @SuppressLint("Range") String storedPassword = cursor.getString(cursor.getColumnIndex(COLUMN_PASSWORD));
-            exists = password.equals(storedPassword);
-        }
-
-        cursor.close();
-        db.close();
-
-        return exists;
-    }
-
-    public String getUserNameByEmail(String email) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT " + COLUMN_NAME + " FROM " + TABLE_NAME + " WHERE " + COLUMN_EMAIL + " = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{email});
-        String userName = null;
-
-        if (cursor.moveToFirst()) {
-            int nameColumnIndex = cursor.getColumnIndexOrThrow(COLUMN_NAME);
-            userName = cursor.getString(nameColumnIndex);
-        }
-
-        cursor.close();
-        db.close();
-
-        return userName;
     }
 }
