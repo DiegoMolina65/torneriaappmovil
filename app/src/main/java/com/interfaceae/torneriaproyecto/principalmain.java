@@ -116,8 +116,9 @@ public class principalmain extends AppCompatActivity {
     }
 
     private void actualizarDatosUsuario() {
-        String username = dbHelper.obtenerUsername(this);
-        String email = dbHelper.obtenerEmail(this);
+        SharedPreferences sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
+        String username = sharedPreferences.getString("username", "");
+        String email = sharedPreferences.getString("email", "");
 
         Log.d("Datos Usuario", "Username: " + username);
         Log.d("Datos Usuario", "Email: " + email);

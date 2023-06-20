@@ -3,6 +3,7 @@ package com.interfaceae.torneriaproyecto;
 import android.app.Activity;
 import android.widget.Toast;
 
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -15,9 +16,9 @@ import javax.mail.internet.MimeMessage;
 
 public class EmailSender {
 
-    public static void enviarCorreo(final Activity activity, final String destinatario, final String asunto, final String mensaje) {
+    public static void enviarCorreo(final Activity activity, final String destinatario, final String asunto, final String mensaje, final String numeroTelefono) {
 
-        final String correo = "example@gmail.com"; // tu correo
+        final String correo = "diegobrian042@gmail.com"; // tu correo
         final String contrasena = "nnlbtchpzfjluhsm"; // tu contraseña
 
         Thread enviar = new Thread(new Runnable() {
@@ -36,11 +37,34 @@ public class EmailSender {
                         }
                     });
 
-                    Message message = new MimeMessage(session);
+                    MimeMessage message = new MimeMessage(session);
                     message.setFrom(new InternetAddress(correo));
                     message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
                     message.setSubject(asunto);
-                    message.setText(mensaje);
+
+                    // Crear contenido HTML del mensaje
+                    String htmlContent = "<html><body style='background-color:#F4F4F4;'>";
+                    htmlContent += "<div style='text-align:right;padding:20px;'>";
+                    htmlContent += "<img src='@drawable/logotorneria' alt='Logo' style='height:80px;'>";
+                    htmlContent += "</div>";
+                    htmlContent += "<div style='padding:20px;'>";
+                    htmlContent += "<h3>Detalles de la compra</h3>";
+                    htmlContent += "<p>Servicios solicitados:</p>";
+                    htmlContent += "<ul>";
+                    // Agregar los detalles de los servicios seleccionados
+                    Carrito carrito = Carrito.getInstance(); // Obtener instancia de Carrito
+                    List<Servicio> serviciosSeleccionados = carrito.getServicios();
+                    for (Servicio servicio : serviciosSeleccionados) {
+                        htmlContent += "<li>" + servicio.getNombre() + " - $" + servicio.getCosto() + "</li>";
+                    }
+                    htmlContent += "</ul>";
+                    htmlContent += "<p>Costo total: $" + carrito.obtenerCostoTotal() + "</p>";
+                    htmlContent += "<p>Mensaje extra: " + mensaje + "</p>";
+                    htmlContent += "<p>Número de teléfono: " + numeroTelefono + "</p>";
+                    htmlContent += "</div>";
+                    htmlContent += "</body></html>";
+
+                    message.setContent(htmlContent, "text/html; charset=utf-8");
 
                     Transport.send(message);
 

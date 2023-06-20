@@ -101,7 +101,7 @@ public class CarritoDialogFragment extends DialogFragment {
                         eliminarServicio(which);
                     }
                 })
-                .setNegativeButton("Aceptar", null)
+                .setNegativeButton("Cancelar", null)
                 .show();
     }
 

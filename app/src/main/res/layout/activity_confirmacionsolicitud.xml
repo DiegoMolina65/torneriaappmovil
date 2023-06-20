@@ -74,11 +74,24 @@
                 android:textColor="#000000"
                 android:textColorHint="#9BABB8" />
 
+            <EditText
+                android:id="@+id/edit_telefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edit_mensaje"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edittext_rounded_background"
+                android:hint="Ingrese su número de teléfono"
+                android:inputType="phone"
+                android:minHeight="48dp"
+                android:textColor="#000000"
+                android:textColorHint="#9BABB8" />
+
             <Button
                 android:id="@+id/button_finalizar_compra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/edit_mensaje"
+                android:layout_below="@id/edit_telefono"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/azuloscuro_button"
                 android:text="Finalizar compra"

@@ -39,7 +39,7 @@ public class contacto extends AppCompatActivity implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(TM));
 
         // Mueve la cámara a la posición del marcador y ajusta el nivel de zoom.
-        float zoomLevel = 10.0f; // Este es tu nivel de zoom
+        float zoomLevel = 15.0f; // Este es tu nivel de zoom
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(TM, zoomLevel));
 
         Log.d("Map", "Latitud: " + TM.latitude + ", Longitud: " + TM.longitude);
