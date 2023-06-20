@@ -17,7 +17,7 @@ public class EmailSender {
 
     public static void enviarCorreo(final Activity activity, final String destinatario, final String asunto, final String mensaje) {
 
-        final String correo = "diegobrian042@gmail.com"; // tu correo
+        final String correo = "example@gmail.com"; // tu correo
         final String contrasena = "nnlbtchpzfjluhsm"; // tu contraseña
 
         Thread enviar = new Thread(new Runnable() {

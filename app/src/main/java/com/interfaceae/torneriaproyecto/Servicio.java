@@ -1,6 +1,8 @@
 package com.interfaceae.torneriaproyecto;
 
-public class Servicio {
+import java.io.Serializable;
+
+public class Servicio implements Serializable {
     private String nombre;
     private String descripcion;
     private double costo;

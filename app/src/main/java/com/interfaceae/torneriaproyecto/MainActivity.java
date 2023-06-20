@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("email", email);
                         editor.putString("password", password);
+                        String username = dbHelper.getUserName(email);
+                        editor.putString("username", username);
                         editor.apply();
 
                         Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();

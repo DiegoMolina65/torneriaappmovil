@@ -3,12 +3,13 @@ package com.interfaceae.torneriaproyecto;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.ImageButton;
+import android.widget.TextView;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -25,29 +26,46 @@ public class principalmain extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityPrincipalmainBinding binding;
     private Carrito carrito;
+    private DataBaseHelper dbHelper;
+    private TextView textViewUsername;
+    private TextView textViewEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        carrito = Carrito.getInstance();
-
 
         binding = ActivityPrincipalmainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarPrincipalmain.toolbar);
 
-        ImageButton cartButton = findViewById(R.id.fab);
-        binding.appBarPrincipalmain.fab.setOnClickListener(new View.OnClickListener() {
+        // Obtenemos la instancia de Carrito
+        MyApplication app = (MyApplication) getApplication();
+        carrito = app.getCarrito();
+
+        // Inicializar DataBaseHelper
+        dbHelper = new DataBaseHelper(this);
+
+        // Obtener los TextView
+        View headerView = binding.navView.getHeaderView(0);
+        textViewUsername = headerView.findViewById(R.id.textViewUsername);
+        textViewEmail = headerView.findViewById(R.id.textViewEmail);
+
+        // Actualizar los datos del usuario
+        actualizarDatosUsuario();
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CarritoDialogFragment carritoDialog = new CarritoDialogFragment(carrito);
-                carritoDialog.show(getSupportFragmentManager(), "CarritoDialog");
+                CarritoDialogFragment dialogFragment = CarritoDialogFragment.newInstance(carrito);
+                dialogFragment.show(getSupportFragmentManager(), "CarritoDialogFragment");
             }
         });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -61,7 +79,6 @@ public class principalmain extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.principalmain, menu);
         return true;
     }
@@ -85,23 +102,32 @@ public class principalmain extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
     private void cerrarSesion() {
-        // Obtener SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
-
-        // Borrar los datos almacenados en SharedPreferences
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.remove("email");
         editor.remove("password");
         editor.apply();
 
-
-        // Iniciar LoginActivity y finalizar MainActivity
         Intent loginIntent = new Intent(principalmain.this, MainActivity.class);
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(loginIntent);
         finish();
+    }
+
+    private void actualizarDatosUsuario() {
+        String username = dbHelper.obtenerUsername(this);
+        String email = dbHelper.obtenerEmail(this);
+
+        Log.d("Datos Usuario", "Username: " + username);
+        Log.d("Datos Usuario", "Email: " + email);
+
+        if (textViewUsername != null) {
+            textViewUsername.setText(username);
+        }
+
+        if (textViewEmail != null) {
+            textViewEmail.setText(email);
+        }
     }
 }

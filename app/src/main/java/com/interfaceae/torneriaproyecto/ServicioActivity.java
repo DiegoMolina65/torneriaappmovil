@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+// Clase ServicioActivity
 public class ServicioActivity extends AppCompatActivity {
     private Carrito carrito;
 
@@ -49,7 +50,14 @@ public class ServicioActivity extends AppCompatActivity {
             }
         });
 
-
-
+        // No hay más código para el cart_button aquí
+     /*   ImageButton cartButton = findViewById(R.id.cart_button);
+        cartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CarritoDialogFragment carritoDialog = new CarritoDialogFragment(carrito);
+                carritoDialog.show(getSupportFragmentManager(), "CarritoDialog");
+            }
+        });*/
     }
 }

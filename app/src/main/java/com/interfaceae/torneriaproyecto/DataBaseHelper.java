@@ -1,9 +1,12 @@
 package com.interfaceae.torneriaproyecto;
+
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DataBaseHelper extends SQLiteOpenHelper{
+public class DataBaseHelper extends SQLiteOpenHelper {
     // Nombre de la base de datos
     public static final String DATABASE_NAME = "torneriamontero.db";
 
@@ -42,5 +45,35 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         // simplemente en descartar los datos existentes y comenzar de nuevo
         db.execSQL(SQL_DELETE_ENTRIES);
         onCreate(db);
+    }
+
+    public String getUserName(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String username = null;
+
+        Cursor cursor = db.query(TABLE_NAME, new String[]{COLUMN_NAME}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null);
+        if (cursor.moveToFirst()) {
+            int columnIndex = cursor.getColumnIndex(COLUMN_NAME);
+            if (columnIndex >= 0) {
+                username = cursor.getString(columnIndex);
+            }
+        }
+        cursor.close();
+
+        return username;
+    }
+
+    public String obtenerUsername(Context context) {
+        String email = getEmailFromSharedPreferences(context);
+        return getUserName(email);
+    }
+
+    public String obtenerEmail(Context context) {
+        return getEmailFromSharedPreferences(context);
+    }
+
+    private String getEmailFromSharedPreferences(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        return sharedPreferences.getString("email", "");
     }
 }

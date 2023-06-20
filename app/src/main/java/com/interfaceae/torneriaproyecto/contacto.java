@@ -1,6 +1,8 @@
 package com.interfaceae.torneriaproyecto;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -28,7 +30,7 @@ public class contacto extends AppCompatActivity implements OnMapReadyCallback {
         mMap = googleMap;
 
         // Crea un objeto LatLng con las coordenadas de Tornería Montero.
-        LatLng TM = new LatLng(-17.349417393693535,-63.253402445030375);
+        LatLng TM = new LatLng(-17.349417393693535, -63.253402445030375);
 
         // Añade un marcador en esa posición.
         mMap.addMarker(new MarkerOptions().position(TM).title("Torneria Montero"));
@@ -39,5 +41,8 @@ public class contacto extends AppCompatActivity implements OnMapReadyCallback {
         // Mueve la cámara a la posición del marcador y ajusta el nivel de zoom.
         float zoomLevel = 10.0f; // Este es tu nivel de zoom
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(TM, zoomLevel));
+
+        Log.d("Map", "Latitud: " + TM.latitude + ", Longitud: " + TM.longitude);
     }
+
 }
