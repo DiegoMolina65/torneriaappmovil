@@ -9,36 +9,16 @@
                 android:duration="100"
                 android:valueTo="0.9"
                 android:valueType="floatType" />
-            <objectAnimator android:propertyName="scaleX"
-                android:duration="150"
-                android:startDelay="100"
-                android:valueTo="1.05"
-                android:valueType="floatType" />
-            <objectAnimator android:propertyName="scaleY"
-                android:duration="150"
-                android:startDelay="100"
-                android:valueTo="1.05"
-                android:valueType="floatType" />
-            <objectAnimator android:propertyName="scaleX"
-                android:duration="100"
-                android:startDelay="250"
-                android:valueTo="1.0"
-                android:valueType="floatType" />
-            <objectAnimator android:propertyName="scaleY"
-                android:duration="100"
-                android:startDelay="250"
-                android:valueTo="1.0"
-                android:valueType="floatType" />
         </set>
     </item>
     <item android:state_enabled="true">
         <set>
             <objectAnimator android:propertyName="scaleX"
-                android:duration="0"
+                android:duration="150"
                 android:valueTo="1.0"
                 android:valueType="floatType" />
             <objectAnimator android:propertyName="scaleY"
-                android:duration="0"
+                android:duration="150"
                 android:valueTo="1.0"
                 android:valueType="floatType" />
         </set>

@@ -43,6 +43,9 @@ public class Registro extends AppCompatActivity {
                 } else {
                     registerUser(nombre, apellido, email, password);
                     Toast.makeText(Registro.this, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(Registro.this, principalmain.class);
+                    startActivity(intent);
                 }
             }
         });
