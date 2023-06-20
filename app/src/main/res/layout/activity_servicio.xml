@@ -9,39 +9,20 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#9BABB8">
-
-        <RelativeLayout
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#4F709C"
-            android:padding="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Producto y Servicio"
-                android:textColor="#FFFFFF"
-                android:textSize="25dp"
-                android:textStyle="bold" />
-
-            <ImageButton
-                android:id="@+id/cart_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:background="?android:attr/selectableItemBackground"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_shopping_cart"
-                android:stateListAnimator="@animator/animate_button_click" />
-        </RelativeLayout>
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/header">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:background="#FA4E4E">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,36 +46,38 @@
                             android:id="@+id/product_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Construcción, preparacion de maquinas y equipos de procesos indrustriales"
-                            android:textColor="#4F709C"
-                            android:textSize="22sp"
                             android:layout_marginBottom="8dp"
-                            android:textStyle="bold"
-                            android:shadowColor="#000000"
+                            android:shadowColor="#751010"
                             android:shadowDx="1"
                             android:shadowDy="1"
-                            android:shadowRadius="1" />
+                            android:shadowRadius="1"
+                            android:text="¡Tu fábrica siempre en excelentes condiciones!"
+                            android:textColor="#F61C1C"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:id="@+id/product_image"
                             android:layout_width="match_parent"
                             android:layout_height="250dp"
-                            android:src="@drawable/imageproduct1"
+                            android:background="@drawable/rounded_image"
+                            android:clipToOutline="true"
+                            android:elevation="4dp"
                             android:scaleType="centerCrop"
-                            android:elevation="4dp" />
+                            android:src="@drawable/imageproduct1" />
 
                         <TextView
                             android:id="@+id/product_description"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Son equipos diseñados para optimizar el proceso productivo, todas son fundamentales, sin importar el tamaño, cada maquinaria industrial juega un rol esencial, empacan, ensamblan, envasan, llenan, tienen usos muy diversos y su impacto en la humanidad ha sido incuestionable."
-                            android:textColor="#4F709C"
-                            android:textSize="18sp"
                             android:shadowColor="#000000"
                             android:shadowDx="1"
                             android:shadowDy="1"
-                            android:shadowRadius="1" />
+                            android:shadowRadius="1"
+                            android:text="Potenciando el progreso sin límites! Maquinaria esencial, diversa y transformadora para empacar, ensamblar, envasar y llenar. ¡Su impacto en la humanidad es indiscutible!"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/product_buy1"
@@ -106,7 +89,7 @@
                             android:shadowDy="1"
                             android:shadowRadius="1"
                             android:text="Costo: 100$"
-                            android:textColor="#4F709C"
+                            android:textColor="#000000"
                             android:textSize="18sp" />
 
                         <Button
@@ -115,6 +98,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:background="@drawable/azuloscuro_button"
+                            android:stateListAnimator="@animator/button_background"
                             android:text="Solicitar servicio"
                             android:textColor="#FFFFFF" />
                     </LinearLayout>
@@ -125,8 +109,8 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="16dp"
                     android:layout_marginTop="20dp"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="8dp">
 
                     <LinearLayout
@@ -139,36 +123,38 @@
                             android:id="@+id/product_name2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Trabajos de mantenimineto y preparacioes en fabrica"
-                            android:textColor="#4F709C"
                             android:layout_marginBottom="8dp"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:shadowColor="#000000"
+                            android:shadowColor="#751010"
                             android:shadowDx="1"
                             android:shadowDy="1"
-                            android:shadowRadius="1" />
+                            android:shadowRadius="1"
+                            android:text="¡Restaura el poder de tu producción!"
+                            android:textColor="#F61C1C"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:id="@+id/product_image2"
                             android:layout_width="match_parent"
                             android:layout_height="250dp"
-                            android:src="@drawable/imageproduct2"
+                            android:background="@drawable/rounded_image"
+                            android:clipToOutline="true"
+                            android:elevation="4dp"
                             android:scaleType="centerCrop"
-                            android:elevation="4dp" />
+                            android:src="@drawable/imageproduct2" />
 
                         <TextView
                             android:id="@+id/product_description2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Los técnicos de mantenimiento deben asegurarse de que los equipos utilizados en las industrias manufactureras y de procesamiento funcionan correctamente y de manera eficiente. Diagnostican y reparan averías. También llevan a cabo revisiones periódicas de mantenimiento."
-                            android:textColor="#4F709C"
-                            android:textSize="18sp"
                             android:shadowColor="#000000"
                             android:shadowDx="1"
                             android:shadowDy="1"
-                            android:shadowRadius="1" />
+                            android:shadowRadius="1"
+                            android:text="Los técnicos de mantenimiento mantienen equipos industriales en funcionamiento y los reparan cuando fallan."
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/product_buy2"
@@ -180,7 +166,7 @@
                             android:shadowDy="1"
                             android:shadowRadius="1"
                             android:text="Costo: 150$"
-                            android:textColor="#4F709C"
+                            android:textColor="#000000"
                             android:textSize="18sp" />
 
                         <Button
@@ -190,6 +176,7 @@
                             android:layout_marginTop="10dp"
                             android:background="@drawable/azuloscuro_button"
                             android:text="Solicitar servicio"
+                            android:stateListAnimator="@animator/button_background"
                             android:textColor="#FFFFFF" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -199,8 +186,8 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="16dp"
                     android:layout_marginTop="20dp"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="8dp">
 
                     <LinearLayout
@@ -213,36 +200,38 @@
                             android:id="@+id/product_name3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Mantenimiento electrico"
-                            android:textColor="#4F709C"
                             android:layout_marginBottom="8dp"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:shadowColor="#000000"
+                            android:shadowColor="#FF0000"
                             android:shadowDx="1"
                             android:shadowDy="1"
-                            android:shadowRadius="1" />
+                            android:shadowRadius="1"
+                            android:text="¡Mantén la energía fluyendo sin interrupciones! "
+                            android:textColor="#F61C1C"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:id="@+id/product_image3"
                             android:layout_width="match_parent"
                             android:layout_height="250dp"
-                            android:src="@drawable/imageproduct3"
+                            android:background="@drawable/rounded_image"
+                            android:clipToOutline="true"
+                            android:elevation="4dp"
                             android:scaleType="centerCrop"
-                            android:elevation="4dp" />
+                            android:src="@drawable/imageproduct3" />
 
                         <TextView
                             android:id="@+id/product_description3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="El mantenimiento eléctrico consiste en realizar inspecciones en el equipamiento eléctrico de cara a facilitar la detección de estos posibles problemas en su rendimiento, bien mediante acciones correctivas."
-                            android:textColor="#4F709C"
-                            android:textSize="18sp"
                             android:shadowColor="#000000"
                             android:shadowDx="1"
                             android:shadowDy="1"
-                            android:shadowRadius="1" />
+                            android:shadowRadius="1"
+                            android:text="El mantenimiento eléctrico busca detectar y corregir problemas en el equipamiento eléctrico para asegurar su buen rendimiento."
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/product_buy3"
@@ -254,7 +243,7 @@
                             android:shadowDy="1"
                             android:shadowRadius="1"
                             android:text="Costo: 200$"
-                            android:textColor="#4F709C"
+                            android:textColor="#000000"
                             android:textSize="18sp" />
 
                         <Button
@@ -264,8 +253,10 @@
                             android:layout_marginTop="10dp"
                             android:background="@drawable/azuloscuro_button"
                             android:text="Solicitar servicio"
+                            android:stateListAnimator="@animator/button_background"
                             android:textColor="#FFFFFF" />
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
                 <!-- -->

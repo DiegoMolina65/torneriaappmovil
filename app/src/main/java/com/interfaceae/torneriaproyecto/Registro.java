@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.os.Bundle;
+import android.content.SharedPreferences;
 
 public class Registro extends AppCompatActivity {
     DataBaseHelper dbHelper;
@@ -43,6 +44,9 @@ public class Registro extends AppCompatActivity {
                 } else {
                     registerUser(nombre, apellido, email, password);
                     Toast.makeText(Registro.this, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(Registro.this, principalmain.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -66,5 +70,12 @@ public class Registro extends AppCompatActivity {
         values.put(DataBaseHelper.COLUMN_PASSWORD, password);
 
         long newRowId = db.insert(DataBaseHelper.TABLE_NAME, null, values);
+
+        // Guardar el nombre y el correo electrónico en SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("username", name);
+        editor.putString("email", email);
+        editor.apply();
     }
 }

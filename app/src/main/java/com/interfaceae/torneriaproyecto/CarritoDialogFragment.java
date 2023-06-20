@@ -19,10 +19,23 @@ public class CarritoDialogFragment extends DialogFragment {
     private Carrito carrito;
     private List<Servicio> servicios;
 
-    public CarritoDialogFragment(Carrito carrito) {
-        this.carrito = carrito;
-        // Hacer una copia de los servicios para evitar modificar la lista original
-        this.servicios = new ArrayList<>(carrito.getServicios());
+    public CarritoDialogFragment() {}
+
+    public static CarritoDialogFragment newInstance(Carrito carrito) {
+        CarritoDialogFragment fragment = new CarritoDialogFragment();
+        Bundle args = new Bundle();
+        args.putSerializable("carrito", carrito);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            carrito = (Carrito) getArguments().getSerializable("carrito");
+            servicios = new ArrayList<>(carrito.getServicios());
+        }
     }
 
     @Override
@@ -128,16 +141,25 @@ public class CarritoDialogFragment extends DialogFragment {
         float[] outerRadii = new float[]{16, 16, 16, 16, 16, 16, 16, 16};
         RoundRectShape roundRectShape = new RoundRectShape(outerRadii, null, null);
         ShapeDrawable shapeDrawable = new ShapeDrawable(roundRectShape);
-        shapeDrawable.getPaint().setColor(Color.parseColor("#9BABB8"));
+        shapeDrawable.getPaint().setColor(Color.parseColor("#FF0000"));  // Rojo
         return shapeDrawable;
     }
 
     private void setDialogStyle(AlertDialog dialog) {
-        Drawable overlay = new ColorDrawable(Color.parseColor("#4F709C"));
+        Drawable overlay = new ColorDrawable(Color.parseColor("#FFFFFF"));  // Negro
         Drawable background = dialog.getWindow().getDecorView().getBackground();
         Drawable[] layers = {background, overlay};
         LayerDrawable layerDrawable = new LayerDrawable(layers);
         dialog.getWindow().setBackgroundDrawable(layerDrawable);
+
+        // Configura el estilo personalizado para el diálogo
+        int textColor = Color.parseColor("#11B014");  // Verde
+        int alertTextColor = Color.parseColor("#000000");  // Negro
+        int positiveColor = Color.parseColor("#FF0000");  // Rojo
+
+
+        dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(positiveColor);
+        dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(alertTextColor);
+        dialog.getButton(DialogInterface.BUTTON_NEUTRAL).setTextColor(textColor);
     }
 }
-

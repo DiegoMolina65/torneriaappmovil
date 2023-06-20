@@ -3,6 +3,7 @@ package com.interfaceae.torneriaproyecto;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -17,12 +18,21 @@ public class MainActivity extends AppCompatActivity {
     DataBaseHelper dbHelper;
     EditText editTextEmail, editTextPassword;
     Button buttonLogin;
-    Button buttonInvitado;
+
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
+        if (sharedPreferences.contains("email")) {
+            // Si el usuario ya ha iniciado sesión, ir directamente a la actividad principal.
+            Intent intent = new Intent(MainActivity.this, principalmain.class);
+            startActivity(intent);
+            finish(); // Para evitar volver a esta actividad al presionar el botón de retroceso.
+        }
 
         dbHelper = new DataBaseHelper(this);
 
@@ -30,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
         buttonPregistro = findViewById(R.id.buttonPregistro);
-        buttonInvitado = findViewById(R.id.buttonInvitado);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,10 +51,19 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Por favor, rellene todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
                     if(checkUserCredentials(email, password)){
+                        // Guardar los detalles del usuario en SharedPreferences
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("email", email);
+                        editor.putString("password", password);
+                        String username = dbHelper.getUserName(email);
+                        editor.putString("username", username);
+                        editor.apply();
+
                         Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
                         // Iniciar nueva actividad
-                        Intent intent = new Intent(MainActivity.this, Informacion.class);
+                        Intent intent = new Intent(MainActivity.this, principalmain.class);
                         startActivity(intent);
+                        finish(); // Para evitar volver a esta actividad al presionar el botón de retroceso.
                     } else {
                         Toast.makeText(MainActivity.this, "Correo electrónico o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                     }
@@ -60,15 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        buttonInvitado.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ServicioActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     public boolean checkUserCredentials(String email, String password) {
@@ -91,8 +100,4 @@ public class MainActivity extends AppCompatActivity {
             return false;   // Las credenciales del usuario son incorrectas
         }
     }
-
 }
-
-
-

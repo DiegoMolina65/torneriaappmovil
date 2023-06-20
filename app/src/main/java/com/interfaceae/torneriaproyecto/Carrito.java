@@ -1,8 +1,9 @@
 package com.interfaceae.torneriaproyecto;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Carrito {
+public class Carrito implements Serializable {
     private static Carrito instance;
     private List<Servicio> servicios;
 
