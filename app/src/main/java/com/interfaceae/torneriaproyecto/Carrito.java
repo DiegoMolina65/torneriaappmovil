@@ -22,16 +22,6 @@ public class Carrito implements Serializable {
         this.servicios.add(servicio);
     }
 
-    public String obtenerServiciosEnTexto() {
-        StringBuilder builder = new StringBuilder();
-        for (Servicio servicio : this.servicios) {
-            builder.append(servicio.getNombre());
-            builder.append(" - ");
-            builder.append(servicio.getCosto());
-            builder.append("\n");
-        }
-        return builder.toString();
-    }
 
     public double obtenerCostoTotal() {
         double total = 0.0;

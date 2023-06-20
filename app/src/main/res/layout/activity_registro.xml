@@ -7,8 +7,8 @@
     tools:context=".Registro">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,12 +56,13 @@
 
             <EditText
                 android:id="@+id/editTextNombre"
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:ems="10"
                 android:hint="Tu nombre"
                 android:inputType="textPersonName"
+                android:maxLength="50"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#DDDDDD"
                 android:textSize="20dp" />
@@ -80,7 +81,7 @@
 
             <EditText
                 android:id="@+id/editTextApellido"
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:ems="10"
@@ -104,12 +105,13 @@
 
             <EditText
                 android:id="@+id/editTextEmail"
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
+                android:maxLength="50"
                 android:ems="10"
                 android:hint="example@gmail.com"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#DDDDDD"
                 android:textSize="20dp" />
@@ -128,9 +130,10 @@
 
             <EditText
                 android:id="@+id/editTextPassword"
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
+                android:maxLength="50"
                 android:ems="10"
                 android:hint="Tu contraseña"
                 android:inputType="textPassword"
@@ -145,6 +148,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="35dp"
                 android:background="@drawable/botonlogin"
+                android:stateListAnimator="@animator/button_background"
                 android:text="Registrar" />
 
             <Button
@@ -153,6 +157,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:stateListAnimator="@animator/button_background"
                 android:background="@drawable/botonlogin"
                 android:text="Cerrar" />
 
