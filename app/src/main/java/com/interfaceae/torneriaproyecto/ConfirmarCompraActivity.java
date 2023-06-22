@@ -76,7 +76,9 @@ public class ConfirmarCompraActivity extends AppCompatActivity {
                     enviarCorreo(mensajeExtra, numeroTelefono);
 
                     // Redirigir a la pantalla ServicioActivity
-                    Intent intent = new Intent(ConfirmarCompraActivity.this, ServicioActivity.class);
+                    Intent intent = new Intent(ConfirmarCompraActivity.this, principalmain
+
+                            .class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(ConfirmarCompraActivity.this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT).show();
